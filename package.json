@@ -1,0 +1,19 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "This is MEAN project",
+  "main": "server.js",
+  "scripts": {
+    "test": "Will test it",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express" : "3",
+    "mongodb" : "*",
+    "mongoose" : "*",
+    "multer" : "*",
+    "body-parser" : "*"
+  },
+  "author": "PK",
+  "license": "ISC"
+}

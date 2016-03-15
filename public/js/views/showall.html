@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4" ng-hide="showImage">
+        <img style="text-align: center" src="../images/loading_spinner.gif" />
+    </div>
+    <div class="col-lg-12" ng-hide="!showImage">
+        <div class="col-lg-3">
+            <h4>Departments</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="dept in allDepts track by $index">
+                        <td>
+                            <input type="checkbox" ng-model="dept.Selected" ng-change="getSelectedGroups(dept)">
+                        </td>
+                        <td> {{$index + 1}} </td>
+                        <td> {{dept.deptName}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-1">
+            <button class="btn btn-primary mtop" ng-click="getGroups()" title="click here to get the groups">&#10140;</button>
+        </div>
+        <div class="col-lg-4">
+            <h4>Groups</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID</th>
+                        <th>Dept ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="group in groups track by $index">
+                        <td>
+                            <input type="checkbox" ng-model="group.Selected" ng-change="getSelectedEmployees(group)">
+                        </td>
+                        <td> {{group.grpId}} </td>
+                        <td> {{group.deptId}} </td>
+                        <td> {{group.grpName}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-1">
+            <input type="button" title="click here to get the Employees" class="btn btn-primary mtop" value="&#10140;" ng-click="getEmployees()" />
+        </div>
+        <div class="col-lg-3">
+            <h4>Empoyees</h4>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>ID</th>
+                        <th>Group ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in employees track by $index">
+                        <td>
+                            <input type="checkbox" ng-model="employee.Selected" ng-change="getSelectedEmps(employee)">
+                        </td>
+                        <td> {{employee.empId}} </td>
+                        <td> {{employee.grpId}} </td>
+                        <td> {{employee.empName}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-lg-12">
+            <hr/>
+        </div>
+        <div class="col-lg-12">
+            <input type="button" class="btn btn-primary pull-right" value="Submit" ng-click="displayEmployees()">
+        </div>
+        <div class="col-lg-12">
+            <h2>Result:</h2>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Department</th>
+                        <th>Group</th>
+                        <th>Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="employee in filterWithGroups track by $index">
+                        <td>
+                            {{$index+1}}
+                        </td>
+                        <td> {{employee.deptName}} </td>
+                        <td> {{employee.groupName}} </td>
+                        <td> {{employee.empName}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

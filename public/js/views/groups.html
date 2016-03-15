@@ -1,0 +1,20 @@
+<h1>Groups</h1>
+<div class="col-lg-4 col-lg-offset-4" ng-hide="showImage">
+    <img style="text-align: center" src="../images/loading_spinner.gif" />
+</div>
+<table class="table table-striped table-hover" ng-hide="!showImage">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Dept ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="group in groups track by $index">
+            <td> {{group.grpId}} </td>
+            <td> {{group.deptId}} </td>
+            <td> {{group.grpName}} </td>
+        </tr>
+    </tbody>
+</table>
